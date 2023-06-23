@@ -1,6 +1,6 @@
 name: learngithubactions
 ### the on specifies the event that should trigger your workflow     
-on: [workflow_dispatch,push]
+on: workflow_dispatch
 ##### the next thing after the event triggers is the jobs. 
 ### A job is series steps that can be executed in your workflow
 ### A job can have multiple steps. the steps that comes first is executed before the following. 
@@ -42,6 +42,8 @@ jobs:
       uses: actions/setup-java@v3 
       with:
         distribution: temurin
+        java-version: '11'
+
 
 
     
