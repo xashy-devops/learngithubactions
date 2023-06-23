@@ -1,0 +1,53 @@
+name: learngithubactions
+### the on specifies the event that should trigger your workflow     
+on: [workflow_dispatch,push]
+##### the next thing after the event triggers is the jobs. 
+### A job is series steps that can be executed in your workflow
+### A job can have multiple steps. the steps that comes first is executed before the following. 
+## A job is executed on a runner. 
+## A runner is a server that is used to execute the steps defined in our job. 
+# With github by default it is serverless , that there are no issues for us to manage. Github Actions  provides the server that is used to execute our job
+### Github actions can provide different types of runners , ubuntu , windows and macos 
+### Every job is executed on its own runner. Jobs on a runner are executed in parralel 
+## when your workflow is triggered , by default every job gets assigned a runner and starts running. 
+### if you want a job to wait until another job is done running , you make use of the "needs" argument 
+## Every job is assigned a name , and a runner . A job must contain a step. 
+
+jobs: 
+
+## the next line contains the name of the job. the name could be anyname 
+  myfirstjob:
+### the next line specifies the runner. 
+    runs-on: ubuntu-latest 
+    steps:
+##### specify the diff steps of the myfirstjob 
+### the step can have name but it must have a command.
+## when making use of a step it can either be a shell command or an action 
+## a shell command would use the argument "run" and an action would make use use the "uses" argument
+    - name: createfile
+      run: touch akuma.txt 
+### a step can have multiple shell commands. use pipe to define that. 
+    - name: multipleshellcommands
+      run: |
+         echo "i am learning githuc action"
+         echo "myname is xashy"  >> akuma.txt
+
+### an action already written code that can be reused in workflow. when you call an action into your workflow it would perform that task. 
+### an action reduces the time it takes for you to specify different commands 
+### an action can have multiple versions. An action name starts with "actions"+nameoftheaction+versionoftheaction
+## actions are available on the github marketplace. 
+## some actions have mandatory arguments that must be specified.
+    - name: install maven and java 
+### this action installs java and maven. the distrubution specifies the distruibution of java.     
+      uses: actions/setup-java@v3 
+      with:
+        distribution: temurin
+
+
+    
+ 
+          
+
+
+
+
