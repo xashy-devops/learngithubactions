@@ -18,7 +18,7 @@ jobs:
 ## the next line contains the name of the job. the name could be anyname 
   myfirstjob:
 ### the next line specifies the runner. 
-    runs-on: ubuntu-latest 
+    runs-on: self-hosted
     steps:
 ##### specify the diff steps of the myfirstjob 
 ### the step can have name but it must have a command.
